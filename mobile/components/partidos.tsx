@@ -3,14 +3,13 @@ import React from 'react'
 import Button from "./button"
 import PartidoCard from './partidoCard'
 import { SoccerGameI } from '../interfaces/soccerGameI'
-import { useLinkTo } from '@react-navigation/native'
+import { useLinkTo, useNavigation } from '@react-navigation/native'
 import useAuthStore from '../store/auth'
 import { postService } from '../utils/fetch'
+import Usefetch from '../hooks/useFetch'
+import { getSoccerGame } from '../services/soccerGame'
 
-interface Params {
-  data: SoccerGameI[]
-  handleLoadData: () => Promise<void>
-}
+
 
 interface SignUpI {
   usuarioId: string,
@@ -18,10 +17,12 @@ interface SignUpI {
 }
 
 
-const Partidos = ({ data, handleLoadData }: Params) => {
+const Partidos = () => {
   const linkTo = useLinkTo();
 
   const { userId } = useAuthStore();
+
+  const { data, loading, handleLoadData } = Usefetch<SoccerGameI>({ services: getSoccerGame })
 
   const handleSignUp = async (partidoId: string) => {
     const val: SignUpI = {
@@ -41,7 +42,7 @@ const Partidos = ({ data, handleLoadData }: Params) => {
     <ScrollView style={styles.container}>
       <View style={styles.containerBtn}><Button onPress={() => { linkTo("/FormPostGame"); }}>Crear partido</Button></View>
       <ScrollView contentContainerStyle={styles.cardsContainer}>
-        {data.map(v => <PartidoCard key={v.partidoId} v={v} handleSignUp={handleSignUp} handleLoadData={handleLoadData} btnTxt={"Inscribirse"} />)}
+        {data != null && data.map(v => <PartidoCard key={v.partidoId} v={v} handleSignUp={handleSignUp} handleLoadData={handleLoadData} btnTxt={"Inscribirse"} />)}
       </ScrollView>
     </ScrollView>
   )

@@ -16,37 +16,34 @@ const Home = () => {
 
   const { userId } = useAuthStore();
 
-  const { data: soccerGameData, loading, handleLoadData } = Usefetch<SoccerGameI>({ services: getSoccerGame })
-
-  const { data: soccerGameByUserData } = Usefetch<any>({ services: getSoccerGameByUser, id: userId })
 
 
 
-  if (!loading)
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Gol App</Text>
-          <Text>{page}</Text>
-          <View style={styles.buttonsContainer}>
-            <Button onPress={() => setPage("Mis partidos")}>Mis partidos</Button>
-            <Button onPress={() => setPage("Lista de partidos")}>Partidos</Button>
-          </View>
+
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Gol App</Text>
+        <Text>{page}</Text>
+        <View style={styles.buttonsContainer}>
+          <Button onPress={() => setPage("Mis partidos")}>Mis partidos</Button>
+          <Button onPress={() => setPage("Lista de partidos")}>Partidos</Button>
         </View>
-        {soccerGameData.length != undefined &&
-          page === "Mis partidos" ?
-          <MisPartidos data={soccerGameByUserData.game} />
+      </View>
+      {
+
+        page === "Mis partidos" ?
+          <MisPartidos />
 
           :
           page === "Lista de partidos" &&
-          <Partidos data={soccerGameData} handleLoadData={handleLoadData} />
-        }
-      </View>
-    )
-
-  return (
-    <View></View>
+          <Partidos />
+      }
+    </View>
   )
+
+
 }
 
 export default Home
