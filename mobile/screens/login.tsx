@@ -17,11 +17,6 @@ const Login = () => {
         linkTo("/Register");
     };
 
-<<<<<<< HEAD
-    const handleLogin = (val: FormType) => {
-        linkTo("/Home");
-        console.log(val)
-=======
     const handleLogin = async (val: FormType) => {
         const res = await postService('user/Login', val);
         if (res.status == 200) {
@@ -33,7 +28,6 @@ const Login = () => {
             //res.data
         }
         alert('contraseña incorrecta')
->>>>>>> 53c6501ab645e97b588451958f12ba09af86c0d4
     }
 
     return (
