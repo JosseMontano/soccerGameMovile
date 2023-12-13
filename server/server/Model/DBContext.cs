@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,10 +19,8 @@ public partial class DBContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-   /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Server=localhost;Port=5932;Database=goalSoccer;User Id=postgres;Password=root;");
-   */
+    public virtual DbSet<Usuariopartido> Usuariopartidos { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasPostgresExtension("uuid-ossp");
@@ -65,6 +63,29 @@ public partial class DBContext : DbContext
             entity.Property(e => e.NombreUsuario)
                 .HasMaxLength(255)
                 .HasColumnName("nombre_usuario");
+        });
+
+        modelBuilder.Entity<Usuariopartido>(entity =>
+        {
+            entity.HasKey(e => e.UsuarioPartidoId).HasName("usuariopartido_pkey");
+
+            entity.ToTable("usuariopartido");
+
+            entity.Property(e => e.UsuarioPartidoId)
+                .HasDefaultValueSql("uuid_generate_v4()")
+                .HasColumnName("usuario_partido_id");
+            entity.Property(e => e.PartidoId).HasColumnName("partido_id");
+            entity.Property(e => e.UsuarioId).HasColumnName("usuario_id");
+
+            entity.HasOne(d => d.Partido).WithMany(p => p.Usuariopartidos)
+                .HasForeignKey(d => d.PartidoId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("usuariopartido_partido_id_fkey");
+
+            entity.HasOne(d => d.Usuario).WithMany(p => p.Usuariopartidos)
+                .HasForeignKey(d => d.UsuarioId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("usuariopartido_usuario_id_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

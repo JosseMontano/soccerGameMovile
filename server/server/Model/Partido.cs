@@ -18,6 +18,8 @@ public partial class Partido
     public Guid? UsuarioId { get; set; }
 
     public virtual Usuario? Usuario { get; set; }
+
+    public virtual ICollection<Usuariopartido> Usuariopartidos { get; set; } = new List<Usuariopartido>();
 }
 
 public partial class PartidoDTO

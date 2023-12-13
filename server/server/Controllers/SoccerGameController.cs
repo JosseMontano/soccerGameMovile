@@ -41,7 +41,6 @@ namespace server.Controllers
        // [Route("GamesByUser")]
         public IActionResult GetGamesByUser(Guid id)
         {
-
             var soccergames = _db.Partidos.Where(v => v.UsuarioId == id).Join(_db.Usuarios,
             game => game.UsuarioId,
             user => user.UsuarioId,

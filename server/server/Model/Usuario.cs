@@ -12,6 +12,8 @@ public partial class Usuario
     public string Contrasenia { get; set; } = null!;
 
     public virtual ICollection<Partido> Partidos { get; set; } = new List<Partido>();
+
+    public virtual ICollection<Usuariopartido> Usuariopartidos { get; set; } = new List<Usuariopartido>();
 }
 
 public class LoginDTO
