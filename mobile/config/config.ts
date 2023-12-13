@@ -1,11 +1,9 @@
 interface ConfigType {
-    backendUrl: string;
-  }
+  backendUrl: string;
+}
 
-  const config: ConfigType = {
-    backendUrl: "http://10.0.2.2:4000/api/",
-  };
+const config: ConfigType = {
+  backendUrl: "http://10.0.2.2:7054/api/",
+};
 
-  
-  
-  export default config;
+export default config;

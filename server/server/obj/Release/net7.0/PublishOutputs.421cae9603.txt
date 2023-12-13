@@ -1,0 +1,17 @@
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\server.exe
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\appsettings.json
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\server.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\server.runtimeconfig.json
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\server.pdb
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Npgsql.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\eljos\Documents\development\soccerGameMovile\server\server\obj\Release\net7.0\PubTmp\Out\server.deps.json

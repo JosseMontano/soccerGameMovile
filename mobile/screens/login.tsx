@@ -5,6 +5,9 @@ import NextButton from "../components/nextButton";
 import { Formik } from "formik";
 import { loginValidationSchema } from "../validations/login";
 
+interface FormType {
+    nombreUsuario: string, contrasenia: string
+}
 
 const Login = () => {
     const linkTo = useLinkTo();
@@ -13,8 +16,9 @@ const Login = () => {
         linkTo("/Register");
     };
 
-    const handleLogin = () => {
+    const handleLogin = (val: FormType) => {
         alert('xd')
+        console.log(val)
     }
 
     return (
@@ -32,7 +36,6 @@ const Login = () => {
                     initialValues={{ nombreUsuario: "", contrasenia: "" }}
                     onSubmit={handleLogin}
                 >
-
                     {({
                         handleChange,
                         handleBlur,
@@ -44,8 +47,6 @@ const Login = () => {
                         <>
                             <View style={styles.inputs}>
                                 <Input handleBlur={handleBlur("nombreUsuario")} handleChange={handleChange("nombreUsuario")} value={values.nombreUsuario} />
-
-
                                 <Text
                                 >
                                     {errors.nombreUsuario && touched.nombreUsuario && errors.nombreUsuario}
@@ -55,12 +56,10 @@ const Login = () => {
                                 >
                                     {errors.contrasenia && touched.contrasenia && errors.contrasenia}
                                 </Text>
-
                             </View>
                             <NextButton onPress={handleSubmit} />
                         </>
                     )}
-
                 </Formik>
             </View>
             <View style={styles.notContainer}>
