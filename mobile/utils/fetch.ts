@@ -14,9 +14,7 @@ export const getService = async <T>(endPoint: string) => {
 
     if (response.ok) {
       const result = await response.json();
-      return {
-        data: result,
-      };
+      return result
     }
   } catch (err) {
     console.error(err);

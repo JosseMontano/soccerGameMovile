@@ -17,7 +17,6 @@ const Login = () => {
         linkTo("/Register");
     };
 
-
     const handleLogin = async (val: FormType) => {
         const res = await postService('user/Login', val);
         if (res.status == 200) {
@@ -29,7 +28,6 @@ const Login = () => {
             //res.data
         }
         alert('contraseña incorrecta')
-
     }
 
     return (

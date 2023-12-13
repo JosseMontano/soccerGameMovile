@@ -1,12 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { SoccerGameI } from '../interfaces/soccerGameI'
 
-const PartidoCard = () => {
+interface Params {
+  v: SoccerGameI
+}
+
+const PartidoCard = ({ v }: Params) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.cancha}>Cancha koopa</Text>
-      <Text>25/09/2023</Text>
-      <Text>10:00</Text>
+      <Text style={styles.cancha}>{v.tipoCancha}</Text>
+      <Text>{v.fecha}</Text>
+      <Text>{v.hora}</Text>
+      <Text>Usuario: {v.nombreUsuario}</Text>
+      <Text>Cantidad jugadores: {v.maximoJugadores}</Text>
     </View>
   )
 }

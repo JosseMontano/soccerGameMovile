@@ -1,14 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import PartidoCard from './partidoCard'
+import { SoccerGameI } from '../interfaces/soccerGameI'
 
-const MisPartidos = () => {
+interface Params {
+  v: SoccerGameI
+}
+
+const MisPartidos = ({ v }: Params) => {
   return (
     <View>
-      <PartidoCard />
-      <PartidoCard />
-      <PartidoCard />
-      <PartidoCard />
+      <PartidoCard v={v} />
     </View>
   )
 }
