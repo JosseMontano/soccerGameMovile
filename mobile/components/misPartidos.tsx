@@ -4,13 +4,13 @@ import PartidoCard from './partidoCard'
 import { SoccerGameI } from '../interfaces/soccerGameI'
 
 interface Params {
-  v: SoccerGameI
+  data: SoccerGameI[]
 }
 
-const MisPartidos = ({ v }: Params) => {
+const MisPartidos = ({ data }: Params) => {
   return (
     <ScrollView contentContainerStyle={styles.cardsContainer}>
-      <PartidoCard v={v} />
+      {data.map(v => <PartidoCard v={v} />)}
     </ScrollView>
   )
 }

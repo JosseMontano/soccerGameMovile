@@ -5,15 +5,15 @@ import PartidoCard from './partidoCard'
 import { SoccerGameI } from '../interfaces/soccerGameI'
 
 interface Params {
-  v: SoccerGameI
+  data: SoccerGameI[]
 }
 
-const Partidos = ({ v }: Params) => {
+const Partidos = ({ data }: Params) => {
   return (
     <View style={styles.container}>
       <Button onPress={() => { }}>Crear partido</Button>
       <ScrollView contentContainerStyle={styles.cardsContainer}>
-        <PartidoCard v={v} />
+        {data.map(v => <PartidoCard v={v} />)}
       </ScrollView>
     </View>
   )

@@ -34,14 +34,10 @@ const Home = () => {
         </View>
         {soccerGameData.length != undefined &&
           page === "Mis partidos" ?
-          soccerGameByUserData.map((v) => (
-            <MisPartidos v={v}/>
-          ))
+            <MisPartidos data={soccerGameByUserData}/>
           :
           page === "Lista de partidos" &&
-          soccerGameData.map((v) => (
-            <Partidos v={v} />
-          ))
+            <Partidos data={soccerGameByUserData} />
         }
       </View>
     )
