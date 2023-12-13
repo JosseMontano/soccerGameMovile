@@ -1,10 +1,13 @@
-import { Image, StyleSheet, Text } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
-const NextButton = () => {
+interface Props {
+  onPress: () => any
+}
+
+const NextButton = ({ onPress }: Props) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Image style={styles.image} source={require("../assets/icons/next.png")} />
     </TouchableOpacity>
   );

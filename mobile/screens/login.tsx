@@ -24,7 +24,7 @@ const Login = () => {
           <Input />
           <Input />
         </View>
-        <NextButton />
+        <NextButton onPress={() => linkTo("Home")} />
       </View>
       <View style={styles.notContainer}>
         <Text>¿No tienes una cuenta?</Text>
