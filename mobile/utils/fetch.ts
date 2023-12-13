@@ -26,21 +26,19 @@ export const getService = async <T>(endPoint: string) => {
 export const postService = async <T, R>(url: string, body: T)=>{
     try {
         //const { token } = await getCookie("token");
-    
         const response = await fetch(config.backendUrl + url, {
           method: "POST",
           headers: new Headers({
             accept: "application/json",
             "Content-Type": "application/json",
-            authorization: ' ',
           }),
     
           body: JSON.stringify({
             ...body,
           }),
-
         });
-    
+        console.log('ger')
+        console.log(response)
         const res = await response.json();
         return res;
       } catch (error) {

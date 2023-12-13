@@ -3,7 +3,7 @@ interface ConfigType {
 }
 
 const config: ConfigType = {
-  backendUrl: "http://10.0.2.2:7054/api/",
+  backendUrl: "https://backgoalg.am2ps.online/api/",
 };
 
 export default config;

@@ -4,6 +4,7 @@ import Input from "../components/input";
 import NextButton from "../components/nextButton";
 import { Formik } from "formik";
 import { loginValidationSchema } from "../validations/login";
+import { postService } from "../utils/fetch";
 
 interface FormType {
     nombreUsuario: string, contrasenia: string
@@ -16,9 +17,16 @@ const Login = () => {
         linkTo("/Register");
     };
 
-    const handleLogin = (val: FormType) => {
-        alert('xd')
-        console.log(val)
+    const handleLogin = async (val: FormType) => {
+        const res = await postService('user/Login', val);
+        if (res.status == 201) {
+            console.log(val)
+            alert(res.message)
+            console.log(res)
+            return
+            //res.data
+        }
+        alert('contraseña incorrecta')
     }
 
     return (
