@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Button from "./button"
 import PartidoCard from './partidoCard'
 
 const Partidos = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Button onPress={() => {}}>Crear partido</Button>
-      <View style={styles.cardsContainer}>
+      <ScrollView contentContainerStyle={styles.cardsContainer}>
         <PartidoCard />
         <PartidoCard />
         <PartidoCard />
-      </View>
+      </ScrollView>
     </View>
   )
 }
@@ -19,7 +19,10 @@ const Partidos = () => {
 export default Partidos
 
 const styles = StyleSheet.create({
+  container: {
+    gap: 12
+  },
   cardsContainer: {
-    gap: 32
+    gap: 12
   }
 })

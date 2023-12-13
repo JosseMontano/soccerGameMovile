@@ -17,7 +17,7 @@ export default NextButton;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "green",
+    backgroundColor: "#F5C451",
     width: 72,
     height: 72,
     borderRadius: 36,

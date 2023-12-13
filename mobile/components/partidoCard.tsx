@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import Button from './button'
 
 const PartidoCard = () => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Text style={styles.cancha}>Cancha koopa</Text>
       <Text>25/09/2023</Text>
       <Text>10:00</Text>
-    </View>
+      <Button onPress={() => {}}>Eliminar</Button>
+    </TouchableOpacity>
   )
 }
 
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
     padding: 24,
     gap: 12,
     borderWidth: 2,
-    borderColor: "green",
+    borderColor: "#F5C451",
     borderRadius: 16
   },
   cancha: {

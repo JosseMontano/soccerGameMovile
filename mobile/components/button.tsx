@@ -18,12 +18,14 @@ export default Button
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "green",
+    backgroundColor: "#F5C451",
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 12
   },
   text: {
-    color: "white"
+    color: "white",
+    fontWeight: "600",
+    textAlign: "center"
   }
 });

@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         gap: 12,
     },
     bottomText: {
-        color: "green",
+        color: "#F5C451",
     },
 });
 
