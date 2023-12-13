@@ -19,3 +19,18 @@ public partial class Partido
 
     public virtual Usuario? Usuario { get; set; }
 }
+
+public partial class PartidoDTO
+{
+
+    public int MaximoJugadores { get; set; }
+
+    public string TipoCancha { get; set; } = null!;
+
+    public DateOnly Fecha { get; set; }
+
+    public TimeOnly Hora { get; set; }
+
+    public Guid? UsuarioId { get; set; }
+
+}

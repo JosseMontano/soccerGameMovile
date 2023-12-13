@@ -3,6 +3,8 @@ using server.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//add Postgres
+
 // Add services to the container.
 
 builder.Services.AddDbContext<DBContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
