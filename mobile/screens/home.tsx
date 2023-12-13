@@ -7,19 +7,20 @@ import Usefetch from '../hooks/useFetch'
 import { getSoccerGame } from '../services/soccerGame'
 import { SoccerGameI } from '../interfaces/soccerGameI'
 import { ReturnGetI } from '../interfaces/returnGetI'
+import useAuthStore from '../store/auth'
 
 type PageType = "Mis partidos" | "Lista de partidos";
 
 const Home = () => {
   const [page, setPage] = useState<PageType>("Mis partidos");
 
+  const { userId } = useAuthStore();
+
   const { data: soccerGameData, loading } = Usefetch<SoccerGameI>({ services: getSoccerGame })
 
-  const { data: soccerGameByUserData } = Usefetch<SoccerGameI>({ services: getSoccerGame, id: '52740360-0884-4300-a3ee-c4c0ce5e10a9' })
+  const { data: soccerGameByUserData } = Usefetch<SoccerGameI>({ services: getSoccerGame, id: userId })
 
-  console.log("***********************************")
-  console.log(soccerGameByUserData)
-  console.log("***********************************")
+
 
   if (!loading)
     return (
@@ -34,10 +35,10 @@ const Home = () => {
         </View>
         {soccerGameData.length != undefined &&
           page === "Mis partidos" ?
-            <MisPartidos data={soccerGameByUserData}/>
+          <MisPartidos data={soccerGameByUserData} />
           :
           page === "Lista de partidos" &&
-            <Partidos data={soccerGameByUserData} />
+          <Partidos data={soccerGameByUserData} />
         }
       </View>
     )

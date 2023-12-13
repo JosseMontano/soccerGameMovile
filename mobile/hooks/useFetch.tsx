@@ -23,7 +23,7 @@ const Usefetch = <T,>({ services, id }: Params) => {
     };
 
     handleLoadData();
-  }, [services]);
+  }, [services, id]);
 
   const showMsgEmpty = () => {
     return <p>No hay datos</p>;

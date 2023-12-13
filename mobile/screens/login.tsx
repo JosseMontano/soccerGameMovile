@@ -5,27 +5,28 @@ import NextButton from "../components/nextButton";
 import { Formik } from "formik";
 import { loginValidationSchema } from "../validations/login";
 import { postService } from "../utils/fetch";
+import useAuthStore from "../store/auth";
 
 interface FormType {
     nombreUsuario: string, contrasenia: string
 }
 
 const Login = () => {
+    const { login } = useAuthStore()
     const linkTo = useLinkTo();
 
-    const login = () => {
+    const handleRedirectlogin = () => {
         linkTo("/Register");
     };
 
     const handleLogin = async (val: FormType) => {
         const res = await postService('user/Login', val);
         if (res.status == 200) {
-            console.log(val)
+            login(res.data.usuarioId)
             alert(res.message)
             console.log(res)
             linkTo("/Home");
             return
-            //res.data
         }
         alert('contraseña incorrecta')
     }
@@ -57,17 +58,17 @@ const Login = () => {
                         <>
                             <View style={styles.inputs}>
                                 <Input
-                                    placeholder="Email" 
-                                    handleBlur={handleBlur("nombreUsuario")} 
-                                    handleChange={handleChange("nombreUsuario")} 
-                                    value={values.nombreUsuario} 
+                                    placeholder="Email"
+                                    handleBlur={handleBlur("nombreUsuario")}
+                                    handleChange={handleChange("nombreUsuario")}
+                                    value={values.nombreUsuario}
                                     error={errors.nombreUsuario && touched.nombreUsuario && errors.nombreUsuario}
                                 />
-                                <Input 
-                                    placeholder="Contraseña" 
-                                    handleBlur={handleBlur("contrasenia")} 
-                                    handleChange={handleChange("contrasenia")} 
-                                    value={values.contrasenia} 
+                                <Input
+                                    placeholder="Contraseña"
+                                    handleBlur={handleBlur("contrasenia")}
+                                    handleChange={handleChange("contrasenia")}
+                                    value={values.contrasenia}
                                     error={errors.contrasenia && touched.contrasenia && errors.contrasenia}
                                 />
                             </View>
@@ -78,7 +79,7 @@ const Login = () => {
             </View>
             <View style={styles.notContainer}>
                 <Text>¿No tienes una cuenta?</Text>
-                <TouchableOpacity onPress={() => login()}>
+                <TouchableOpacity onPress={() => handleRedirectlogin()}>
                     <Text style={styles.bottomText}>Regístrate</Text>
                 </TouchableOpacity>
             </View>
