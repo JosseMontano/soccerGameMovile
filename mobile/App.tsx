@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './screens/login';
 import Register from './screens/register';
 import Home from './screens/home';
+import FormPostGame from './screens/formPostGame';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="FormPostGame" component={FormPostGame} />
       </Stack.Navigator>
     </NavigationContainer>
   );

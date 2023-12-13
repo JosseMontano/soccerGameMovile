@@ -10,7 +10,7 @@ interface Params {
 const MisPartidos = ({ data }: Params) => {
   return (
     <ScrollView contentContainerStyle={styles.cardsContainer}>
-      {data.map(v => <PartidoCard v={v} />)}
+      {data.map(v => <PartidoCard key={v.partidoId} v={v} />)}
     </ScrollView>
   )
 }

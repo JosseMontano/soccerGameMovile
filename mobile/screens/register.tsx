@@ -5,15 +5,17 @@ import NextButton from "../components/nextButton";
 import { Formik } from "formik";
 import { loginValidationSchema } from "../validations/login";
 import { postService } from "../utils/fetch";
+import useAuthStore from "../store/auth";
 
 interface FormType {
-  nombreUsuario: string, contrasenia: string
+    nombreUsuario: string, contrasenia: string
 }
 
 const Register = () => {
-  const linkTo = useLinkTo();
+    const linkTo = useLinkTo();
+    const { login } = useAuthStore()
 
-    const login = () => {
+    const handleRedirectlogin = () => {
         linkTo("/Login");
     };
 
@@ -21,6 +23,7 @@ const Register = () => {
         const res = await postService('user/Register', val);
         console.log(res)
         if (res.status == 201) {
+            login(res.data.usuarioId)
             alert(res.message)
             linkTo("/Home");
             return
@@ -29,8 +32,8 @@ const Register = () => {
         alert('contraseña incorrecta')
     }
 
-  return (
-    <View style={styles.container}>
+    return (
+        <View style={styles.container}>
             <View style={styles.loginContainer}>
                 <View style={styles.topContainer}>
                     <Text style={styles.title}>Registrate</Text>
@@ -50,19 +53,19 @@ const Register = () => {
                     }) => (
                         <>
                             <View style={styles.inputs}>
-                                <Input 
-                                  placeholder="Email" 
-                                  handleBlur={handleBlur("nombreUsuario")} 
-                                  handleChange={handleChange("nombreUsuario")} 
-                                  value={values.nombreUsuario} 
-                                  error={errors.nombreUsuario && touched.nombreUsuario && errors.nombreUsuario}
+                                <Input
+                                    placeholder="Email"
+                                    handleBlur={handleBlur("nombreUsuario")}
+                                    handleChange={handleChange("nombreUsuario")}
+                                    value={values.nombreUsuario}
+                                    error={errors.nombreUsuario && touched.nombreUsuario && errors.nombreUsuario}
                                 />
-                                <Input 
-                                  placeholder="Contraseña" 
-                                  handleBlur={handleBlur("contrasenia")} 
-                                  handleChange={handleChange("contrasenia")} 
-                                  value={values.contrasenia} 
-                                  error={errors.contrasenia && touched.contrasenia && errors.contrasenia}
+                                <Input
+                                    placeholder="Contraseña"
+                                    handleBlur={handleBlur("contrasenia")}
+                                    handleChange={handleChange("contrasenia")}
+                                    value={values.contrasenia}
+                                    error={errors.contrasenia && touched.contrasenia && errors.contrasenia}
                                 />
                             </View>
                             <NextButton onPress={handleSubmit} />
@@ -72,51 +75,51 @@ const Register = () => {
             </View>
             <View style={styles.notContainer}>
                 <Text>¿Ya tienes una cuenta?</Text>
-                <TouchableOpacity onPress={() => login()}>
+                <TouchableOpacity onPress={() => handleRedirectlogin()}>
                     <Text style={styles.bottomText}>Inicia sesión</Text>
                 </TouchableOpacity>
             </View>
         </View>
-  )
+    )
 }
 
 export default Register
 
 const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      padding: 40,
-  },
-  loginContainer: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 32,
-  },
-  notContainer: {
-      alignItems: "center",
-      marginBottom: 12,
-      flexDirection: "row",
-      alignSelf: "center",
-      gap: 8,
-  },
-  topContainer: {
-      gap: 12,
-      alignItems: "center",
-  },
-  image: {
-      width: 96,
-      height: 96,
-      borderRadius: 48,
-  },
-  title: {
-      fontWeight: "700",
-      fontSize: 24,
-  },
-  inputs: {
-      gap: 12,
-  },
-  bottomText: {
-      color: "#F5C451",
-  },
+    container: {
+        flex: 1,
+        padding: 40,
+    },
+    loginContainer: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 32,
+    },
+    notContainer: {
+        alignItems: "center",
+        marginBottom: 12,
+        flexDirection: "row",
+        alignSelf: "center",
+        gap: 8,
+    },
+    topContainer: {
+        gap: 12,
+        alignItems: "center",
+    },
+    image: {
+        width: 96,
+        height: 96,
+        borderRadius: 48,
+    },
+    title: {
+        fontWeight: "700",
+        fontSize: 24,
+    },
+    inputs: {
+        gap: 12,
+    },
+    bottomText: {
+        color: "#F5C451",
+    },
 });

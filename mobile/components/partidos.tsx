@@ -3,19 +3,21 @@ import React from 'react'
 import Button from "./button"
 import PartidoCard from './partidoCard'
 import { SoccerGameI } from '../interfaces/soccerGameI'
+import { useLinkTo } from '@react-navigation/native'
 
 interface Params {
   data: SoccerGameI[]
 }
 
 const Partidos = ({ data }: Params) => {
+  const linkTo = useLinkTo();
   return (
-    <View style={styles.container}>
-      <Button onPress={() => { }}>Crear partido</Button>
+    <ScrollView style={styles.container}>
+      <View style={styles.containerBtn}><Button onPress={() => { linkTo("/FormPostGame"); }}>Crear partido</Button></View>
       <ScrollView contentContainerStyle={styles.cardsContainer}>
-        {data.map(v => <PartidoCard v={v} />)}
+        {data.map(v => <PartidoCard key={v.partidoId} v={v} />)}
       </ScrollView>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -27,5 +29,8 @@ const styles = StyleSheet.create({
   },
   cardsContainer: {
     gap: 12
+  },
+  containerBtn: {
+    marginBottom: 14,
   }
 })

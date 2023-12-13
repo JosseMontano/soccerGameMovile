@@ -16,6 +16,7 @@ const Home = () => {
 
   const { userId } = useAuthStore();
 
+  console.log("xd: "+userId)
   const { data: soccerGameData, loading } = Usefetch<SoccerGameI>({ services: getSoccerGame })
 
   const { data: soccerGameByUserData } = Usefetch<SoccerGameI>({ services: getSoccerGame, id: userId })
@@ -38,7 +39,7 @@ const Home = () => {
           <MisPartidos data={soccerGameByUserData} />
           :
           page === "Lista de partidos" &&
-          <Partidos data={soccerGameByUserData} />
+          <Partidos data={soccerGameData} />
         }
       </View>
     )

@@ -9,7 +9,7 @@ interface Props {
 const Button = ({ children, onPress }: Props) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text style={styles.text}>{ children }</Text>
+      <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   )
 }
