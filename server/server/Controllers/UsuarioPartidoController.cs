@@ -19,7 +19,7 @@ namespace server.Controllers
         public IActionResult Get(Guid id)
         {
            
-            var usersGame = _db.Usuariopartidos.Where(v => v.PartidoId == id)
+            var usersGame = _db.Usuariopartidos.Where(v => v.UsuarioId == id)
                 .Join(_db.Partidos,
             usergame => usergame.PartidoId,
             game => game.PartidoId,
@@ -32,9 +32,9 @@ namespace server.Controllers
                 Hora = game.Hora,
                 UsuarioId = game.UsuarioId,
             }
-            ).First();
+            );
 
-            var players = _db.Usuariopartidos.Where(v => v.PartidoId == id)
+            var players = _db.Usuariopartidos.Where(v => v.UsuarioId == id)
                 .Join(_db.Usuarios,
             usergame => usergame.UsuarioId,
             player => player.UsuarioId,

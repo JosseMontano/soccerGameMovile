@@ -4,7 +4,7 @@ import Button from "../components/button"
 import Partidos from "../components/partidos"
 import MisPartidos from "../components/misPartidos"
 import Usefetch from '../hooks/useFetch'
-import { getSoccerGame } from '../services/soccerGame'
+import { getSoccerGame, getSoccerGameByUser } from '../services/soccerGame'
 import { SoccerGameI } from '../interfaces/soccerGameI'
 import { ReturnGetI } from '../interfaces/returnGetI'
 import useAuthStore from '../store/auth'
@@ -16,10 +16,9 @@ const Home = () => {
 
   const { userId } = useAuthStore();
 
-  console.log("xd: "+userId)
-  const { data: soccerGameData, loading } = Usefetch<SoccerGameI>({ services: getSoccerGame })
+  const { data: soccerGameData, loading, handleLoadData } = Usefetch<SoccerGameI>({ services: getSoccerGame })
 
-  const { data: soccerGameByUserData } = Usefetch<SoccerGameI>({ services: getSoccerGame, id: userId })
+  const { data: soccerGameByUserData } = Usefetch<any>({ services: getSoccerGameByUser, id: userId })
 
 
 
@@ -36,10 +35,11 @@ const Home = () => {
         </View>
         {soccerGameData.length != undefined &&
           page === "Mis partidos" ?
-          <MisPartidos data={soccerGameByUserData} />
+          <MisPartidos data={soccerGameByUserData.game} />
+
           :
           page === "Lista de partidos" &&
-          <Partidos data={soccerGameData} />
+          <Partidos data={soccerGameData} handleLoadData={handleLoadData} />
         }
       </View>
     )

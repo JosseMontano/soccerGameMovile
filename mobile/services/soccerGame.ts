@@ -7,7 +7,7 @@ export const getSoccerGame = async()=>{
     return res
 }
 
-export const getSoccerGameByUser = async(id:string)=>{
-    const res:any = await getService('SoccerGame/'+id);
+export const getSoccerGameByUser = async(id?:string)=>{
+    const res:any = await getService('UsuarioPartido/'+id);
     return res
 }
