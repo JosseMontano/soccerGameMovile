@@ -35,7 +35,6 @@ export const postService = async <T, R>(url: string, body: T)=>{
             ...body,
           }),
         });
-        console.log('ger')
         console.log(response)
         const res = await response.json();
         return res;

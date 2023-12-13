@@ -18,11 +18,10 @@ const Register = () => {
     };
 
     const handleLogin = async (val: FormType) => {
-        const res = await postService('user/Login', val);
-        if (res.status == 200) {
-            console.log(val)
+        const res = await postService('user/Register', val);
+        console.log(res)
+        if (res.status == 201) {
             alert(res.message)
-            console.log(res)
             linkTo("/Home");
             return
             //res.data
