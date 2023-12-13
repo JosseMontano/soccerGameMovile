@@ -1447,19 +1447,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eljos\\.nuget\\packages\\": {}
+    "C:\\Users\\Jose Zambrana\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eljos\\Documents\\development\\soccerGameMovile\\server\\server\\server.csproj",
+      "projectUniqueName": "C:\\Users\\Jose Zambrana\\Documents\\Programming\\soccerGame\\server\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "C:\\Users\\eljos\\Documents\\development\\soccerGameMovile\\server\\server\\server.csproj",
-      "packagesPath": "C:\\Users\\eljos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eljos\\Documents\\development\\soccerGameMovile\\server\\server\\obj\\",
+      "projectPath": "C:\\Users\\Jose Zambrana\\Documents\\Programming\\soccerGame\\server\\server\\server.csproj",
+      "packagesPath": "C:\\Users\\Jose Zambrana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jose Zambrana\\Documents\\Programming\\soccerGame\\server\\server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\eljos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jose Zambrana\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1523,7 +1523,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
