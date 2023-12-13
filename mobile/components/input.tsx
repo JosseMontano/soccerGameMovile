@@ -1,11 +1,17 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 
-const Input = () => {
+interface Params {
+  handleBlur: any;
+  value: any;
+  handleChange: any
+}
+
+const Input = ({ handleBlur, handleChange, value }: Params) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Usuario</Text>
-      <TextInput style={styles.input} />
+      <TextInput style={styles.input} onBlur={handleBlur} value={value} onChangeText={handleChange} />
     </View>
   )
 }
