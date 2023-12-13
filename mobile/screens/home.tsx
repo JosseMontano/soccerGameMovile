@@ -11,10 +11,10 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Gol App</Text>
-        <p>{page}</p>
-        <View>
+      <View style={styles.header}>
+        <Text style={styles.title}>Gol App</Text>
+        <Text>{page}</Text>
+        <View style={styles.buttonsContainer}>
           <Button onPress={() => setPage("Mis partidos")}>Mis partidos</Button>
           <Button onPress={() => setPage("Lista de partidos")}>Partidos</Button>
         </View>
@@ -35,5 +35,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 40,
+  },
+  header: {
+    alignItems: "center",
+    gap: 12
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "600",
+  },
+  pageTitle: {
+    fontSize: 18
+  },
+  buttonsContainer: {
+    gap: 48
   },
 })

@@ -17,7 +17,7 @@ const Login = () => {
     };
 
     const handleLogin = (val: FormType) => {
-        alert('xd')
+        linkTo("/Home");
         console.log(val)
     }
 

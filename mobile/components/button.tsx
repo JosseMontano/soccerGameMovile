@@ -19,8 +19,9 @@ export default Button
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "green",
-    paddingHorizontal: 12,
-    paddingVertical: 8
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 12
   },
   text: {
     color: "white"

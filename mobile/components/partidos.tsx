@@ -7,7 +7,7 @@ const Partidos = () => {
   return (
     <View>
       <Button onPress={() => {}}>Crear partido</Button>
-      <View>
+      <View style={styles.cardsContainer}>
         <PartidoCard />
         <PartidoCard />
         <PartidoCard />
@@ -18,4 +18,8 @@ const Partidos = () => {
 
 export default Partidos
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  cardsContainer: {
+    gap: 32
+  }
+})
