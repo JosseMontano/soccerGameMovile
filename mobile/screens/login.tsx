@@ -19,10 +19,11 @@ const Login = () => {
 
     const handleLogin = async (val: FormType) => {
         const res = await postService('user/Login', val);
-        if (res.status == 201) {
+        if (res.status == 200) {
             console.log(val)
             alert(res.message)
             console.log(res)
+            linkTo("/Home");
             return
             //res.data
         }
