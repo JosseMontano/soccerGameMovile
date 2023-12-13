@@ -27,7 +27,7 @@ namespace server.Controllers
         {
          
 
-            var soccerGame = new Partido
+           /* var soccerGame = new Partido
             {
                 Nombre = req.Nombre,
                 Direccion = req.Direccion,
@@ -35,9 +35,9 @@ namespace server.Controllers
             };
 
             _db.Empresas.Add(company);
-            _db.SaveChanges();
+            _db.SaveChanges();*/
 
-            return Ok(new { Message = "Se creo la empresa", Data = company, Status = 201 });
+            return Ok(new { Message = "Se creo la empresa", Data = ' ', Status = 201 });
         }
 
 
