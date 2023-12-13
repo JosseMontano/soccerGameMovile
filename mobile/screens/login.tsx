@@ -38,7 +38,8 @@ const Login = () => {
                         style={styles.image}
                         source={require("../assets/login/imglogin.jpg")}
                     />
-                    <Text style={styles.title}>Bienvenido a Gol App1</Text>
+                    <Text style={styles.title}>Gol App</Text>
+                    <Text style={styles.title}>Inicia sesión</Text>
                 </View>
                 <Formik
                     validationSchema={loginValidationSchema}
@@ -55,16 +56,20 @@ const Login = () => {
                     }) => (
                         <>
                             <View style={styles.inputs}>
-                                <Input handleBlur={handleBlur("nombreUsuario")} handleChange={handleChange("nombreUsuario")} value={values.nombreUsuario} />
-                                <Text
-                                >
-                                    {errors.nombreUsuario && touched.nombreUsuario && errors.nombreUsuario}
-                                </Text>
-                                <Input handleBlur={handleBlur("contrasenia")} handleChange={handleChange("contrasenia")} value={values.contrasenia} />
-                                <Text
-                                >
-                                    {errors.contrasenia && touched.contrasenia && errors.contrasenia}
-                                </Text>
+                                <Input
+                                    placeholder="Email" 
+                                    handleBlur={handleBlur("nombreUsuario")} 
+                                    handleChange={handleChange("nombreUsuario")} 
+                                    value={values.nombreUsuario} 
+                                    error={errors.nombreUsuario && touched.nombreUsuario && errors.nombreUsuario}
+                                />
+                                <Input 
+                                    placeholder="Contraseña" 
+                                    handleBlur={handleBlur("contrasenia")} 
+                                    handleChange={handleChange("contrasenia")} 
+                                    value={values.contrasenia} 
+                                    error={errors.contrasenia && touched.contrasenia && errors.contrasenia}
+                                />
                             </View>
                             <NextButton onPress={handleSubmit} />
                         </>
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
         gap: 12,
     },
     bottomText: {
-        color: "green",
+        color: "#F5C451",
     },
 });
 

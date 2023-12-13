@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SoccerGameI } from '../interfaces/soccerGameI'
+import Button from './button'
 
 interface Params {
   v: SoccerGameI
@@ -8,13 +9,14 @@ interface Params {
 
 const PartidoCard = ({ v }: Params) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Text style={styles.cancha}>{v.tipoCancha}</Text>
       <Text>{v.fecha}</Text>
       <Text>{v.hora}</Text>
       <Text>Usuario: {v.nombreUsuario}</Text>
       <Text>Cantidad jugadores: {v.maximoJugadores}</Text>
-    </View>
+      <Button onPress={() => { }}>Eliminar</Button>
+    </TouchableOpacity>
   )
 }
 
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
     padding: 24,
     gap: 12,
     borderWidth: 2,
-    borderColor: "green",
+    borderColor: "#F5C451",
     borderRadius: 16
   },
   cancha: {

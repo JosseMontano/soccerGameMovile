@@ -1,20 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Button from "./button"
 import PartidoCard from './partidoCard'
 import { SoccerGameI } from '../interfaces/soccerGameI'
 
-interface Params{
-  v:SoccerGameI
+interface Params {
+  v: SoccerGameI
 }
 
-const Partidos = ({v}:Params) => {
+const Partidos = ({ v }: Params) => {
   return (
-    <View>
-      <Button onPress={() => {}}>Crear partido</Button>
-      <View style={styles.cardsContainer}>
+    <View style={styles.container}>
+      <Button onPress={() => { }}>Crear partido</Button>
+      <ScrollView contentContainerStyle={styles.cardsContainer}>
         <PartidoCard v={v} />
-      </View>
+      </ScrollView>
     </View>
   )
 }
@@ -22,7 +22,10 @@ const Partidos = ({v}:Params) => {
 export default Partidos
 
 const styles = StyleSheet.create({
+  container: {
+    gap: 12
+  },
   cardsContainer: {
-    gap: 32
+    gap: 12
   }
 })

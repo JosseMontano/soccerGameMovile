@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import PartidoCard from './partidoCard'
 import { SoccerGameI } from '../interfaces/soccerGameI'
@@ -9,12 +9,16 @@ interface Params {
 
 const MisPartidos = ({ v }: Params) => {
   return (
-    <View>
+    <ScrollView contentContainerStyle={styles.cardsContainer}>
       <PartidoCard v={v} />
-    </View>
+    </ScrollView>
   )
 }
 
 export default MisPartidos
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  cardsContainer: {
+    gap: 12
+  }
+})
