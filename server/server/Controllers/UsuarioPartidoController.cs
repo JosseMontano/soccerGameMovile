@@ -47,7 +47,7 @@ namespace server.Controllers
             return Ok(new { Message = "Datos obtenidos con exito", Data = new { Game= usersGame, Players= players  } , Status = 200 });
         }
 
-        [HttpPost]
+        [HttpPost("Inscribirse")]
         public IActionResult Post([FromBody] UsuariopartidoDTO req)
         {
 
